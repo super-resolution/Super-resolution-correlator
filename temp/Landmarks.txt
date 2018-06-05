@@ -1,0 +1,5 @@
+Index	xSource	ySource	xTarget	yTarget
+    0	    87	    1311	    87	    1311
+    1	    566	    865	    516	    793
+    2	    221	    782	    158	    750
+    3	    389	    1284	    391	    1244

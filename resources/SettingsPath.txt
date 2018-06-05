@@ -1,0 +1,2 @@
+C:\Program Files (x86)\Fiji.app
+C:\Users\biophys\VividSTORM_total_workover_bugfix_\temp\Landmarks_for_test.txt
