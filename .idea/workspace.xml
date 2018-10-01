@@ -2,6 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="447e5ec5-46b2-4581-a38e-be6fc75ebb41" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controllers/align/utility.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test data/20151203_sample2_Al532_Tub_1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test data/Image2b_Al532_ex488_Structured Illumination.czi" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/Update2to3_PyQt5.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Update2to3_PyQt5.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -48,7 +53,7 @@
         <entry file="file://$PROJECT_DIR$/controllers/align/CudaAlphaShape.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-442">
-              <caret line="122" column="34" lean-forward="true" selection-start-line="122" selection-start-column="34" selection-end-line="122" selection-end-column="34" />
+              <caret line="122" column="34" selection-start-line="122" selection-start-column="34" selection-end-line="122" selection-end-column="34" />
               <folding>
                 <element signature="e#1896#1907#0" expanded="true" />
               </folding>
@@ -318,7 +323,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18710938" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32950193" />
@@ -749,7 +753,7 @@
     <entry file="file://$PROJECT_DIR$/controllers/align/CudaAlphaShape.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-442">
-          <caret line="122" column="34" lean-forward="true" selection-start-line="122" selection-start-column="34" selection-end-line="122" selection-end-column="34" />
+          <caret line="122" column="34" selection-start-line="122" selection-start-column="34" selection-end-line="122" selection-end-column="34" />
           <folding>
             <element signature="e#1896#1907#0" expanded="true" />
           </folding>
