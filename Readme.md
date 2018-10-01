@@ -38,7 +38,7 @@ python CoSidStorm.main.py
 
 ### Run test data
 
-For general instructions read the guide. Data in the test data folder can be aligned in the following way:
+For general instructions read the [guide](guide.pdf). Data in the test data folder can be aligned in the following way:
 1. Open SIM and dSTORM data files
 2. Flip SIM image left-right
 3. Pick slice 3
