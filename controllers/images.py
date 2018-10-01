@@ -138,10 +138,11 @@ class StormImage(MicroscopeImage):
             storm_reshaped[...,2] = 10
         self.stormData = np.array([storm_reshaped])
 
-    def transformAffine(self, path):
-        landmarks = pd.read_csv(path, skiprows=1,engine="c", na_filter=False, header=None, delim_whitespace=True, dtype=np.float32).as_matrix()
-        dst = landmarks[:,3:5]
-        src = landmarks[:,1:3]
+    def transformAffine(self, path=None, src=None, dst=None):
+        if path is not None:
+            landmarks = pd.read_csv(path, skiprows=1,engine="c", na_filter=False, header=None, delim_whitespace=True, dtype=np.float32).as_matrix()
+            dst = landmarks[:,3:5]
+            src = landmarks[:,1:3]
         affine = transform.estimate_transform("affine",src,dst)
         data = self.stormData[0][:,0:2]
         data = affine.inverse(data)

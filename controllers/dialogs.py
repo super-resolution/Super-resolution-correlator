@@ -129,6 +129,7 @@ class LoadingDialog(Ui_Dialog_loading):
 class ScaleDialog(Ui_Dialog_scale):
     def __init__(self, *args, **kwargs):
         super(ScaleDialog, self).__init__(*args, **kwargs)
+        self._connected = False
 
     def _setup_components(self):
         widgets = list(self.__dict__.keys())
@@ -145,10 +146,12 @@ class ScaleDialog(Ui_Dialog_scale):
             mode = push_button.objectName().split('_')[-1]
             push_button.clicked.connect(partial(self.main_window.viewer.show_scale, mode))
         self.show_custom_scale.clicked.connect(lambda:self.custom_scale())
+        self._connected = True
 
     def setup(self):
         self._setup_components()
-        self._add_input_handlers()
+        if not self._connected:
+            self._add_input_handlers()
 
 
 class openSTORMDialog(Ui_Dialog_openSTORM):
@@ -650,7 +653,8 @@ class MatrixParameters(Ui_Dialog_Matrix_Parameters):
         self.pushButton_dstorm_3d.clicked.connect(
             lambda: (self.main_window.viewer.change_dstorm_dim(self.pushButton_dstorm_3d.isChecked()),
                 self.pushButton_ortho.setChecked(False)))
-        self.pushButton_alpha_shape.clicked.connect(lambda: self.main_window.viewer.show_alpha_complex(130, self.pushButton_alpha_shape.isChecked()))
+        self.pushButton_alpha_shape.clicked.connect(
+            lambda: self.main_window.viewer.show_alpha_complex(130, self.pushButton_alpha_shape.isChecked()))
         self.pushButton_ortho.clicked.connect(
             lambda: self._ortho())
 
@@ -727,15 +731,18 @@ class RoiDialog(Ui_Dialog_Roi):
     def add_images(self, dStorm, SIM):
         self.box.clear()
         self.box2.clear()
-        dstorm_data = numpy.rot90(numpy.asarray(dStorm).reshape(dStorm.size[1], dStorm.size[0], 4),3)
-        sim_data = numpy.rot90(numpy.asarray(SIM).reshape(SIM.size[1], SIM.size[0], 4),3)
-        sim_image = pg.ImageItem(sim_data.astype("f"))
-        dstorm_image = pg.ImageItem(dstorm_data.astype("f"))
+        x = dStorm.copy()
+        x[...,0] += SIM.astype(numpy.uint8)#why read only? gaussian blur...
+        #dstorm_data = numpy.rot90(numpy.asarray(dStorm).reshape(dStorm.size[1], dStorm.size[0], 4),3)
+        #sim_data = numpy.rot90(numpy.asarray(SIM).reshape(SIM.shape[1], SIM.shape[0], 4),3)
+
+        sim_image = pg.ImageItem(x.astype("f"))
+        dstorm_image = pg.ImageItem(dStorm.astype("f"))
         self.box.addItem(sim_image)
         self.box2.addItem(dstorm_image)
         sim_image.show()
         dstorm_image.show()
-        self.main_window.viewer.display.QWindow.analyse_correlation_test(dstorm_data, sim_data)
+        self.main_window.viewer.display.QWindow.analyse_correlation_test(dStorm, SIM)
 
 
 class ImageRegistrationDia(Ui_Dialog_Imagereg):
@@ -861,7 +868,7 @@ class ImageRegistrationDia(Ui_Dialog_Imagereg):
             self.main_window.viewer.show_storm_image(self.main_window.storm_images_list.selectedItems())
             self.deleteAll()
         elif self.comboBox_registration_mode.currentIndex() == 1:
-            self.main_window.viewer.current_storm_image.transformAffine(cwd + r"\temp\Landmarks.txt")
+            self.main_window.viewer.current_storm_image.transformAffine(path=(cwd + r"\temp\Landmarks.txt"))
             self.main_window.viewer.show_storm_image(self.main_window.storm_images_list.selectedItems())
 
     def _unwarp(self):

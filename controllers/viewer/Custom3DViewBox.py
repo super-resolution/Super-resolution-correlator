@@ -167,17 +167,22 @@ class Display(gl.GLViewWidget):
 
     def set_scale_custom(self, pos, length, width):
         if not self.customScale["Show"]:
-            self.customScale["Show"] = True
-            self.customScale["Position"] = pos
-            self.customScale["Length"] = length
-            self.customScale["Width"] = width
-            pox = np.array([[pos.x()-length/2, pos.y(), pos.z()],
-                            [pos.x()+length/2, pos.y(), pos.z()]])
-            self.customScale["Line"].set_data(width=width, pos=pox)
-            self.customScale["Line"].setVisible(True)
+            if length > 0 and width >0:
+                self.customScale["Show"] = True
+                self.customScale["Position"] = pos
+                self.customScale["Length"] = length
+                self.customScale["Width"] = width
+                pox = np.array([[pos.x()-length/2, pos.y(), pos.z()],
+                                [pos.x()+length/2, pos.y(), pos.z()]])
+                self.customScale["Line"].setData(width=width, pos=pox)
+                self.customScale["Line"].setVisible(True)
+                self.update()
+            else:
+                print("length and width not valid")
         else:
             self.customScale["Line"].setVisible(False)
             self.customScale["Show"] = False
+            self.update()
 
     def set_sim_image(self, image, chNumb, pxSize, lut, mininterpolation=True, maginterpolation=True, update= True):
         #only works if ch0 is visible fix!
@@ -276,7 +281,10 @@ class Display(gl.GLViewWidget):
     def get_alpha_shape(self):
         size = self.metaData["SizeX"]
         print(self.storm[0].position[:,0].max()/(size*1000), self.storm[0].position[:,1].max()/(size*1000))
-        self.alpha_complex.background_render(pg.QtCore.QPoint(self.storm[0].position[:,0].max()/(size*1000), self.storm[0].position[:,1].max()/(size*1000)),1.0)
+        if self.alpha_complex.visible():
+            self.alpha_complex.background_render(pg.QtCore.QPoint(self.storm[0].position[:,0].max()/(size*1000), self.storm[0].position[:,1].max()/(size*1000)),1.0)
+        else:
+            print("create alpha shape first")
         return self.alpha_complex.image
 
     def get_marker(self):
@@ -297,10 +305,11 @@ class Display(gl.GLViewWidget):
 
         #self.sim.getImage(rect_roi_sim, ratio)
         self.storm[0].background_render(storm_size, ratio, (rect_roi_dstorm.x(),rect_roi_dstorm.y(),rect_roi_dstorm.width(),rect_roi_dstorm.height()))
+        self.alpha_complex.background_render(storm_size, ratio, (rect_roi_dstorm.x(),rect_roi_dstorm.y(),rect_roi_dstorm.width(),rect_roi_dstorm.height()))
         #self.storm[0].getImage(storm_size, rect_roi_dstorm, ratio)
 
         roi_sim = self.get_roi_sim(rect_roi_sim, self.sim.data[0])
-        roi_storm = self.storm[0].image
+        roi_storm = self.alpha_complex.image#self.storm[0].image
 
         return roi_storm, roi_sim
 
@@ -455,7 +464,7 @@ class Display(gl.GLViewWidget):
                 ratio = self.metaData["SizeX"]/render_size
                 storm, sim = self.get_roi_images(self.roi.rect, ratio)
                 self.roiData["locdSTORM"] = loc_dstorm
-                self.roiData["imagedSTORM"] = storm
+                self.roiData["imagedSTORM"] = np.asarray(storm)
                 self.roiData["imageSIM"] = sim#np.rot90(sim,3)
                 self.main_window.dialog_tool_roi.add_images(self.roiData["imagedSTORM"], self.roiData["imageSIM"])
                 self.main_window.dialog_export_roi.add_images(self.roiData["locdSTORM"],
@@ -556,8 +565,9 @@ class Display(gl.GLViewWidget):
 
     def analyse_correlation_test(self, dStorm, SIM):  # roi
         a = dStorm.astype(np.uint8)[..., 0:2].sum(2)
-        b = SIM.astype(np.uint8)[..., 0:2].sum(2)
+        b = SIM.astype(np.uint8)
         corr = stats.pearsonr(b.flatten(), a.flatten())
+        print(corr)
         self.main_window.dialog_tool_roi.set_bottom_text("Correlation SIM0, dSTORM0: " + str(corr[0]))
 
     def free_hand_roi(self):

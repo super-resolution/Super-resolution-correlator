@@ -28,8 +28,9 @@ from PyQt5 import QtCore
 
 import numpy as np,datetime
 
-from controllers.cuda.CudaAlphaShape import get_k_simplices
-from controllers.cuda.CudaHough import hough_transform
+from controllers.align.CudaAlphaShape import get_k_simplices
+from controllers.align.CudaHough import hough_transform
+from controllers.align.utility import *
 
 
 try:
@@ -163,60 +164,70 @@ class Viewer(object):
     def perform_ght(self, ch_num):
         #try:
         alpha = np.array(self.display.QWindow.get_alpha_shape())
-        sim = np.flipud(np.fliplr(self.display.QWindow.sim.data[ch_num]))
+        sim = self.display.QWindow.sim.data[ch_num]
+        img = self.current_confocal_image
+        if not img.flip["UpsideDown"]:
+            sim = np.flipud(sim)
+        if not img.flip["LeftRight"]:
+            sim = np.fliplr(sim)
         #except:
         #    print("No alpha shape/ SIM data")
-        hough = hough_transform()
-        hough.set_template(alpha)
-        hough.set_image(np.clip(sim,0,255))
-        p_dstorm = []
-        q_sim = []
-        t_list = []
-        col_len = 3
-        #x dim
-        for i in range(5):
-            #y dim
-            for j in range(col_len):
-                #define start point
-                k,j = 450+j*200,650+j*200
-                #point set dstorm = source point of segment
-                p_dstorm.append(np.array((k+100,i*200+100)))
-                dstorm_segment = alpha[k:j,0+i*200:200+i*200]
-                #imnew = im[k:j,0+i*200:200+i*200]
-                hough.set_template(dstorm_segment)
-                res = hough.transform()
-                q_sim.append(res[1][0:2]*2)
-                t_list.append(res[0:2])
-        num = []
-        for i,ent1 in enumerate(t_list):
-            row1 = int(i/col_len)
-            col1 = i%col_len
-            max=0
-            print(i)
-            for j,ent2 in enumerate(t_list):
-                row = int(j/col_len)
-                col = j%col_len
-                #todo: some tangens
-                val1 = ent1[1][0]-(col1-col)*100
-                val2 = ent1[1][1]-(row1-row)*100
-                if np.absolute(val1-ent2[1][0])<50 and np.absolute(val2-ent2[1][1])<50:
-                    print(True)
-                    max+=1
-                else:
-                    print(False)
-            if max>2:
-                num.append(i)
-        p_dstorm = np.asarray(p_dstorm)[np.array(num).astype(np.int32)]*self.current_confocal_image.metaData['SizeX']*1000
-        q_sim = np.asarray(q_sim)[np.array(num).astype(np.int32)]*self.current_confocal_image.metaData['SizeX']*1000
-        for marker in p_dstorm:
-            self.main_window.dialog_imageregistration.set_markers(marker[0], marker[1], "STORM")
-        for marker in q_sim:
-            self.main_window.dialog_imageregistration.set_markers(marker[0], marker[1], "SIM")
-        self.main_window.dialog_imageregistration.pushGL()
+        points1, points2, z, t_list = find_mapping(np.clip(sim,0,255), alpha)
+        p_dstorm, q_sim = error_management(t_list, points1, points2)
+        # hough = hough_transform()
+        # hough.set_template(alpha)
+        # hough.set_image(np.clip(sim,0,255))
+        # p_dstorm = []
+        # q_sim = []
+        # t_list = []
+        # col_len = 5
+        # #x dim
+        # for i in range(5):
+        #     #y dim
+        #     for j in range(col_len):
+        #         #define start point
+        #         k,j = j*200,j*200
+        #         #point set dstorm = source point of segment
+        #         p_dstorm.append(np.array((k+100,i*200+100)))
+        #         dstorm_segment = alpha[k:j,0+i*200:200+i*200]
+        #         #imnew = im[k:j,0+i*200:200+i*200]
+        #         hough.set_template(dstorm_segment)
+        #         res = hough.transform()
+        #         q_sim.append(res[1][0:2]*2)
+        #         t_list.append(res[0:2])
+        # num = []
+        # for i,ent1 in enumerate(t_list):
+        #     row1 = int(i/col_len)
+        #     col1 = i%col_len
+        #     max=0
+        #     print(i)
+        #     for j,ent2 in enumerate(t_list):
+        #         row = int(j/col_len)
+        #         col = j%col_len
+        #         #todo: some tangens
+        #         val1 = ent1[1][0]-(col1-col)*100
+        #         val2 = ent1[1][1]-(row1-row)*100
+        #         if np.absolute(val1-ent2[1][0])<50 and np.absolute(val2-ent2[1][1])<50:
+        #             print(True)
+        #             max+=1
+        #         else:
+        #             print(False)
+        #     if max>2:
+        #         num.append(i)
+        p_dstorm = np.asarray(p_dstorm)*self.current_confocal_image.metaData['SizeX']*1000
+        q_sim = np.asarray(q_sim)*self.current_confocal_image.metaData['SizeX']*1000
+        self.main_window.viewer.current_storm_image.transformAffine(src=p_dstorm,dst=q_sim)
+        self.main_window.viewer.show_storm_image(self.main_window.storm_images_list.selectedItems())
+        #for marker in p_dstorm:
+        #    self.main_window.dialog_imageregistration.set_markers(marker[0], marker[1], "STORM")
+        #for marker in q_sim:
+        #    self.main_window.dialog_imageregistration.set_markers(marker[0], marker[1], "SIM")
+        #self.main_window.dialog_imageregistration.pushGL()
         #map = estimate_transform("affine", q_sim, p_dstorm)
         #self.current_storm_image.stormData[0][:,0:2] = map.inverse(self.current_storm_image.stormData[0][:,0:2])
 
-
+    def correlation_test(self):
+        self.display.QWindow.analyse_correlation_test()
 
 
     def show_storm_image(self, Imgs, prevImage=None):
