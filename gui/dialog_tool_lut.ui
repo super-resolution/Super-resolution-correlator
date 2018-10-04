@@ -47,7 +47,7 @@
          </size>
         </property>
         <property name="title">
-         <string>STORM LUT</string>
+         <string>dSTORM LUT</string>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_3">
          <item>
@@ -145,7 +145,7 @@
          </size>
         </property>
         <property name="title">
-         <string>Confocal LUT</string>
+         <string>SIM LUT</string>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_2">
          <item>

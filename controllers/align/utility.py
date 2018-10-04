@@ -34,7 +34,10 @@ def find_mapping(image, c_template, n_col=5, n_row=5):
             template_segment = template[k:j,0+i*200:200+i*200]
             imnew = c_template[k:j,0+i*200:200+i*200]
             H.set_template(template_segment)
-            res = H.transform()
+            try:
+                res = H.transform()
+            except:
+                print("r-table fail")
             results.append(res[0:2])
             points2.append(res[1][0:2])
 

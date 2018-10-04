@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>CoSIdSTORM v 0.9</string>
+   <string>Super-resolution correlator v 1.0</string>
   </property>
   <property name="windowIcon">
    <iconset resource="../resources/main_resources.qrc">

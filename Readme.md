@@ -1,6 +1,6 @@
-# CosidSTORM
+# Super-resolution correlator
 
-CoSidStorm is package for data processing in super-resolution microscopy. It contains a intuitive GUI and high perfomant
+Super-resolution correlator is package for data processing in super-resolution microscopy. It contains a intuitive GUI and high perfomant
 GPU based visualization and algorithms for 2D and 3D data. <br />
 Main features:
 * Cuda accelerated 2D Alpha Shapes

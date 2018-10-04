@@ -46,7 +46,7 @@ from views.dialog_imagereg import Ui_Dialog_Imagereg
 from views.dialog_tool_positioning import Ui_Dialog_positioning
 
 
-from views.dialog_tool_roi import Ui_Dialog_Roi
+from views.dialog_roi import Ui_Dialog_Roi
 
 
 from views.dialog_view_3d import Ui_Dialog_3d

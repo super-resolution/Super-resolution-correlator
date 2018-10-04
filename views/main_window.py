@@ -1169,7 +1169,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "CoSIdSTORM v 0.9"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Super-resolution correlator v 1.0"))
         self.groupBox_storm_top_controls.setTitle(_translate("MainWindow", "dSTORM images"))
         self.pushButton_open_storm.setText(_translate("MainWindow", "Open files..."))
         self.checkBox_trans_Matrix.setText(_translate("MainWindow", "Transform with matrix"))

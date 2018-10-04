@@ -535,7 +535,7 @@ QPushButton:pressed {
       <string notr="true"/>
      </property>
      <property name="text">
-      <string>Find markers with General Hough Transform</string>
+      <string>Transform with General Hough Transform</string>
      </property>
     </widget>
    </item>

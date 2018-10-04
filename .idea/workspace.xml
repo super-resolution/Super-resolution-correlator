@@ -2,23 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="447e5ec5-46b2-4581-a38e-be6fc75ebb41" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controllers/align/utility.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test data/20151203_sample2_Al532_Tub_1.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test data/Image2b_Al532_ex488_Structured Illumination.czi" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Update2to3_PyQt5.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Update2to3_PyQt5.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/cuda/CudaAlphaShape.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/align/CudaAlphaShape.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/cuda/CudaHough.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/align/CudaHough.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/cuda/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/align/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/align/utility.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/align/utility.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/dialogs.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/dialogs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/filters.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/filters.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/images.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/images.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/viewer/Custom3DViewBox.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/viewer/Custom3DViewBox.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/viewer/viewer.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/viewer/viewer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/temp/Landmarks.txt" beforeDir="false" afterPath="$PROJECT_DIR$/temp/Landmarks.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gui/dialog_imagereg.ui" beforeDir="false" afterPath="$PROJECT_DIR$/gui/dialog_imagereg.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gui/dialog_roi.ui" beforeDir="false" afterPath="$PROJECT_DIR$/gui/dialog_roi.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gui/dialog_tool_lut.ui" beforeDir="false" afterPath="$PROJECT_DIR$/gui/dialog_tool_lut.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gui/main_window.ui" beforeDir="false" afterPath="$PROJECT_DIR$/gui/main_window.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/dialog_imagereg.py" beforeDir="false" afterPath="$PROJECT_DIR$/views/dialog_imagereg.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/dialog_roi.py" beforeDir="false" afterPath="$PROJECT_DIR$/views/dialog_roi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/dialog_tool_lut.py" beforeDir="false" afterPath="$PROJECT_DIR$/views/dialog_tool_lut.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/main_window.py" beforeDir="false" afterPath="$PROJECT_DIR$/views/main_window.py" afterDir="false" />
     </list>
     <ignored path="Update2to3_PyQt5.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -70,23 +64,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="viewer.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controllers/viewer/viewer.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3893">
-              <caret line="229" column="54" selection-start-line="229" selection-start-column="54" selection-end-line="229" selection-end-column="54" />
-              <folding>
-                <element signature="e#74#112#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="utility.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="utility.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controllers/align/utility.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
-              <caret line="35" selection-start-line="35" selection-end-line="35" />
+            <state relative-caret-position="646">
+              <caret line="39" column="36" selection-start-line="39" selection-start-column="36" selection-end-line="39" selection-end-column="36" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -94,11 +76,29 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CudaHough.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main_window.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/main_window.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="816">
+              <caret line="1357" column="7" selection-start-line="1357" selection-start-column="7" selection-end-line="1357" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dialog_roi.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/dialog_roi.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-34">
+              <caret line="108" column="35" selection-start-line="108" selection-start-column="35" selection-end-line="108" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CudaHough.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controllers/align/CudaHough.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="273" column="62" selection-start-line="273" selection-start-column="62" selection-end-line="273" selection-end-column="62" />
+            <state relative-caret-position="385">
+              <caret line="245" column="12" selection-start-line="245" selection-start-column="12" selection-end-line="245" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -106,8 +106,8 @@
       <file leaf-file-name="dialogs.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controllers/dialogs.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="12563">
-              <caret line="739" column="55" selection-start-line="739" selection-start-column="55" selection-end-line="739" selection-end-column="55" />
+            <state relative-caret-position="614">
+              <caret line="732" column="16" lean-forward="true" selection-start-line="732" selection-start-column="16" selection-end-line="732" selection-end-column="16" />
               <folding>
                 <element signature="e#74#103#0" expanded="true" />
               </folding>
@@ -115,11 +115,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main_window.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controllers/main_window.py">
+      <file leaf-file-name="dialog_tool_roi.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/dialog_tool_roi.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="53" column="13" selection-start-line="53" selection-start-column="13" selection-end-line="53" selection-end-column="13" />
+            <state relative-caret-position="306">
+              <caret line="18" column="16" lean-forward="true" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -127,22 +127,10 @@
       <file leaf-file-name="images.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controllers/images.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2499">
-              <caret line="146" column="39" selection-start-line="146" selection-start-column="39" selection-end-line="146" selection-end-column="39" />
+            <state relative-caret-position="689">
+              <caret line="223" column="35" selection-start-line="223" selection-start-column="34" selection-end-line="223" selection-end-column="35" />
               <folding>
                 <element signature="e#73#82#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Render.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controllers/viewer/render/Render.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1785">
-              <caret line="105" column="8" selection-start-line="105" selection-start-column="8" selection-end-line="105" selection-end-column="8" />
-              <folding>
-                <element signature="e#237#255#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -161,6 +149,7 @@
     <findStrings>
       <find>scale</find>
       <find>corre</find>
+      <find>Dialog_ROi</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -183,16 +172,16 @@
         <option value="$PROJECT_DIR$/controllers/viewer/render/Shader.py" />
         <option value="$PROJECT_DIR$/controllers/viewer/ConfocalLUT.py" />
         <option value="$PROJECT_DIR$/controllers/viewer/StormLUT.py" />
-        <option value="$PROJECT_DIR$/views/main_window.py" />
         <option value="$PROJECT_DIR$/controllers/cuda/CudaHough.py" />
         <option value="$PROJECT_DIR$/controllers/filters.py" />
         <option value="$PROJECT_DIR$/setup.py" />
-        <option value="$PROJECT_DIR$/controllers/align/utility.py" />
         <option value="$PROJECT_DIR$/controllers/align/CudaHough.py" />
         <option value="$PROJECT_DIR$/controllers/images.py" />
         <option value="$PROJECT_DIR$/controllers/viewer/viewer.py" />
         <option value="$PROJECT_DIR$/controllers/viewer/Custom3DViewBox.py" />
+        <option value="$PROJECT_DIR$/views/main_window.py" />
         <option value="$PROJECT_DIR$/controllers/dialogs.py" />
+        <option value="$PROJECT_DIR$/controllers/align/utility.py" />
       </list>
     </option>
   </component>
@@ -224,6 +213,11 @@
               <item name="Update2to3_PyQt5" type="462c0819:PsiDirectoryNode" />
               <item name="controllers" type="462c0819:PsiDirectoryNode" />
               <item name="align" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Update2to3_PyQt5" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Update2to3_PyQt5" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -324,10 +318,10 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18710938" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18710938" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32950193" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.2705611" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2705611" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.32950193" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -358,11 +352,6 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/controllers/images.py</url>
-          <line>233</line>
-          <option name="timeStamp" value="32" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/controllers/viewer/viewer.py</url>
           <line>176</line>
           <option name="timeStamp" value="38" />
@@ -377,6 +366,16 @@
           <line>738</line>
           <option name="timeStamp" value="49" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/controllers/images.py</url>
+          <line>274</line>
+          <option name="timeStamp" value="56" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/controllers/images.py</url>
+          <line>273</line>
+          <option name="timeStamp" value="58" />
+        </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
@@ -385,27 +384,10 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="51" />
+      <option name="time" value="59" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/controllers/viewer/render/shaders/Alpha.vs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="30" column="74" selection-start-line="30" selection-start-column="73" selection-end-line="30" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/viewer/viewer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="165" column="63" selection-start-line="165" selection-start-column="59" selection-end-line="165" selection-end-column="63" />
-          <folding>
-            <element signature="e#74#112#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controllers/filters.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -662,13 +644,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/main_window.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6224">
-          <caret line="1345" column="83" selection-start-line="1345" selection-start-column="83" selection-end-line="1345" selection-end-column="83" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -686,16 +661,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/align/utility.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="35" selection-start-line="35" selection-end-line="35" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controllers/main_window.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
@@ -709,26 +674,6 @@
           <caret line="229" column="54" selection-start-line="229" selection-start-column="54" selection-end-line="229" selection-end-column="54" />
           <folding>
             <element signature="e#74#112#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/images.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2499">
-          <caret line="146" column="39" selection-start-line="146" selection-start-column="39" selection-end-line="146" selection-end-column="39" />
-          <folding>
-            <element signature="e#73#82#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/dialogs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="12563">
-          <caret line="739" column="55" selection-start-line="739" selection-start-column="55" selection-end-line="739" selection-end-column="55" />
-          <folding>
-            <element signature="e#74#103#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -760,10 +705,61 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/images.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="689">
+          <caret line="223" column="35" selection-start-line="223" selection-start-column="34" selection-end-line="223" selection-end-column="35" />
+          <folding>
+            <element signature="e#73#82#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/main_window.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="816">
+          <caret line="1357" column="7" selection-start-line="1357" selection-start-column="7" selection-end-line="1357" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/dialog_roi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-34">
+          <caret line="108" column="35" selection-start-line="108" selection-start-column="35" selection-end-line="108" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/dialog_tool_roi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="16" lean-forward="true" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/dialogs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="614">
+          <caret line="732" column="16" lean-forward="true" selection-start-line="732" selection-start-column="16" selection-end-line="732" selection-end-column="16" />
+          <folding>
+            <element signature="e#74#103#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/controllers/align/CudaHough.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="273" column="62" selection-start-line="273" selection-start-column="62" selection-end-line="273" selection-end-column="62" />
+        <state relative-caret-position="385">
+          <caret line="245" column="12" selection-start-line="245" selection-start-column="12" selection-end-line="245" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/align/utility.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="39" column="36" selection-start-line="39" selection-start-column="36" selection-end-line="39" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

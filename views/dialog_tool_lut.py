@@ -152,10 +152,10 @@ class Ui_Dialog_lut(object):
     def retranslateUi(self, Dialog_lut):
         _translate = QtCore.QCoreApplication.translate
         Dialog_lut.setWindowTitle(_translate("Dialog_lut", "LUT settings tool"))
-        self.groupBox_3.setTitle(_translate("Dialog_lut", "STORM LUT"))
+        self.groupBox_3.setTitle(_translate("Dialog_lut", "dSTORM LUT"))
         self.label.setText(_translate("Dialog_lut", "Lower threshold"))
         self.label_2.setText(_translate("Dialog_lut", "Upper threshold"))
-        self.groupBox_2.setTitle(_translate("Dialog_lut", "Confocal LUT"))
+        self.groupBox_2.setTitle(_translate("Dialog_lut", "SIM LUT"))
         self.label_3.setText(_translate("Dialog_lut", "Lower threshold"))
         self.label_4.setText(_translate("Dialog_lut", "Upper threshold"))
 
