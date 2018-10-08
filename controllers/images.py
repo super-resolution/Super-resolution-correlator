@@ -145,7 +145,7 @@ class StormImage(MicroscopeImage):
             src = landmarks[:,1:3]
         affine = transform.estimate_transform("affine",src,dst)
         data = self.stormData[0][:,0:2]
-        data = affine.inverse(data)
+        data = affine(data)
         self.stormData[0][:,0:2] = data
         #transformLocalization.saveLocFile(os.path.splitext(self.file_path)[0]+"_temp.txt", x)
 
@@ -196,7 +196,11 @@ class ConfocalImage(MicroscopeImage):
                     shapes = Metadata.findall('./Metadata/Information/Image')[0]
                     self.metaData["ShapeSizeX"] = int(shapes.findall('SizeX')[0].text)
                     self.metaData["ShapeSizeY"] = int(shapes.findall('SizeY')[0].text)
-                    self.metaData["ShapeSizeZ"] = int(shapes.findall('SizeZ')[0].text)
+                    try:
+                        self.metaData["ShapeSizeZ"] = int(shapes.findall('SizeZ')[0].text)
+                    except:
+                        self.metaData["ShapeSizeZ"] = 1
+                        print("One z-Slice")
                     #Get the hyperstack dimension if the image is a hyperstack.
                     try:
                         self.metaData["ShapeSizeC"] = int(shapes.findall('SizeC')[0].text)

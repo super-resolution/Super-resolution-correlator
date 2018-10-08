@@ -30,9 +30,10 @@ def find_mapping(image, c_template, n_col=5, n_row=5):
     for i in range(n_col):
         for j in range(n_row):
             k,j = 0+j*200,200+j*200
-            points1.append(np.array((k+100,i*200+100)))
-            template_segment = template[k:j,0+i*200:200+i*200]
-            imnew = c_template[k:j,0+i*200:200+i*200]
+            l,m = i*200,200+i*200
+            points1.append(np.array((k+100,l+100)))
+            template_segment = template[k:j,l:m]
+            imnew = c_template[k:j,l:m]
             H.set_template(template_segment)
             try:
                 res = H.transform()
@@ -65,7 +66,7 @@ def error_management(result_list, points1, points2, n_row = 5):
             col2 = j%n_row
             val1 = ent1[1][0]-(col1-col2)*100*np.cos(np.deg2rad(ent1[0]))+(row1-row2)*100*np.sin(np.deg2rad(ent1[0]))
             val2 = ent1[1][1]-(row1-row2)*100*np.cos(np.deg2rad(ent1[0]))-(col1-col2)*100*np.sin(np.deg2rad(ent1[0]))
-            if np.absolute(val1-ent2[1][0])<25 and np.absolute(val2-ent2[1][1])<25:#todo: tangens
+            if np.absolute(val1-ent2[1][0])<14 and np.absolute(val2-ent2[1][1])<14:#todo: tangens
                 print(True)
                 max+=1
             else:

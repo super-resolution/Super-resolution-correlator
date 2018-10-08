@@ -214,6 +214,16 @@ class Viewer(object):
         #             print(False)
         #     if max>2:
         #         num.append(i)
+        x = p_dstorm[:,1]
+        y = p_dstorm[:,0].copy()
+        p_dstorm[:,0]=x
+        p_dstorm[:,1]=y
+        x = q_sim[:,1]
+        y = q_sim[:,0].copy()
+        q_sim[:,0]=x
+        q_sim[:,1]=y
+
+        print(p_dstorm,q_sim)
         p_dstorm = np.asarray(p_dstorm)*self.current_confocal_image.metaData['SizeX']*1000
         q_sim = np.asarray(q_sim)*self.current_confocal_image.metaData['SizeX']*1000
         self.main_window.viewer.current_storm_image.transformAffine(src=p_dstorm,dst=q_sim)

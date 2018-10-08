@@ -268,7 +268,7 @@ class hough_transform(object):
          # int(self.r_table.shape[1]/block_size[2])
         #todo: size something with modulo
         #done: iterate different angles 0:16 degree
-        for i in range(10):
+        for i in range(15):
             #done: additive rundungsfehler lösung: rotate r_zero
             angle = i
             self.r_table = self.rot_R_table(np.pi*(angle)/180)
@@ -287,7 +287,6 @@ class hough_transform(object):
             self.create_accum(accum_ptr, r_table_ptr, grad_ptr,  block=block_size, grid=grid)
             t1 = time.time()
             acc = A.get()
-            print("one run needs:", time.time()-t1)
             #cv2.imwrite(r"C:\Users\biophys\Desktop\Masterarbeit\src\abb\Hough_complete_accum.jpg",acc.astype("uint8"))
             if self.weighted:
                 weighted_acc = self.get_weighted_maximas(acc, ratio=0.8)
@@ -297,6 +296,7 @@ class hough_transform(object):
             x=np.unravel_index(weighted_acc[...,4].argmax(),weighted_acc.shape[0])
             if weighted_acc[x,4]>res[1][4]:
                 res = (angle,weighted_acc[x])
+            print("one run needs:", time.time()-t1)
             print("Rotation:"+ str(angle) +"° \n maximal weighted find"+ str(weighted_acc[x]))
         #dtoh result from gpu
         #done: get max return rotation and index
