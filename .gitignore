@@ -1,5 +1,5 @@
 .idea/
 setup.py
 *.ini
-__pycache__/
-*.py[cod]
+*.pyc
+__pycache__
