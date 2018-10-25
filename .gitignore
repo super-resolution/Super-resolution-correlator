@@ -1,4 +1,4 @@
 .idea/
 setup.py
 *.ini
-__pycache__
+__pycache__/
