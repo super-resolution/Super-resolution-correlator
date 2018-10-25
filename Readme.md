@@ -32,7 +32,7 @@ Some images
 3. Start GUI with
 
 ```
-python CoSidStorm.main.py
+python main.py
 ```
 4. Install missing packages if necessary
 
