@@ -1,5 +1,7 @@
-.idea/
+
 __pycache__/
+.idea/
+
 setup.py
 *.ini
 
