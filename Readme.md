@@ -16,6 +16,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
+* impro
 * Nvidia GPU with compute capability 3 or higher
 * Cuda 8.0 or higher
 * pycuda
@@ -41,7 +42,6 @@ python main.py
 For general instructions read the [guide](guide.pdf). Data in the test data folder can be aligned in the following way:
 1. Open SIM and dSTORM data files
 2. Flip SIM image left-right
-3. Pick slice 3
 4. Set z-position to -300
 5. Set upper SIM LUT threshhold to 19
 6. Set dSTORM local density filter to 18 per 100 nm
