@@ -1,11 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-Created on: 2015.01.11.
-
-Author: turbo
-
-
-"""
 import os
 from .util import RunnableComponent
 import numpy

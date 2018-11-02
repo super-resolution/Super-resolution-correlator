@@ -1,11 +1,5 @@
 # -*- coding: utf-8 -*-
-"""
-Created on: 2015.01.11.
 
-Author: turbo
-
-
-"""
 import numpy as numpy, datetime
 import scipy
 #from sklearn.cluster import DBSCAN

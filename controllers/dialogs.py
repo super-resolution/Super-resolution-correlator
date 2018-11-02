@@ -1,11 +1,5 @@
 # -*- coding: utf-8 -*-
-"""
-Created on: 2015.01.12.
 
-Author: turbo
-
-
-"""
 
 from functools import partial
 

@@ -1,11 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-Created on: 2015.01.26.
-
-Author: turbo
-
-
-"""
 
 from .StormDisplay import StormDisplay
 
@@ -15,9 +8,7 @@ from .. import default_config
 
 from ..rois import EllipseRoi, CircleRoi, ActiveContourRoi
 
-from skimage.transform import estimate_transform
-
-from controllers import images
+from impro.processing import Image as images
 
 
 import os
@@ -28,9 +19,9 @@ from PyQt5 import QtCore
 
 import numpy as np,datetime
 
-from controllers.align.CudaAlphaShape import get_k_simplices
-from controllers.align.CudaHough import hough_transform
-from controllers.align.utility import *
+from impro.processing.CudaAlphaShape import get_k_simplices
+from impro.processing.CudaHough import hough_transform
+from impro.processing.utility import *
 
 
 try:
@@ -172,7 +163,7 @@ class Viewer(object):
             sim = np.fliplr(sim)
         #except:
         #    print("No alpha shape/ SIM data")
-        points1, points2, z, t_list = find_mapping(np.clip(sim,0,255), alpha)
+        points1, points2, z, t_list = find_mapping(np.clip(sim,0,255).astype(np.uint8), alpha.astype(np.uint8))
         p_dstorm, q_sim = error_management(t_list, points1, points2)
         # hough = hough_transform()
         # hough.set_template(alpha)
@@ -239,6 +230,16 @@ class Viewer(object):
     def correlation_test(self):
         self.display.QWindow.analyse_correlation_test()
 
+    def construct_new_image_storm(self, imgs):
+        basic_image = imgs[0]
+        List = []
+        ChannelList = []
+        for i in range(len(imgs)):
+            List.append(imgs[i].stormData[0])
+            ChannelList.append("ch" + str(i))
+        basic_image.stormData = np.array(List)
+        basic_image.StormChannelList = ChannelList
+        return basic_image
 
     def show_storm_image(self, Imgs, prevImage=None):
         if Imgs:
@@ -269,7 +270,7 @@ class Viewer(object):
                        # Img.isParsingNeeded = True
                        # self.main_window.status_bar.showMessage('File format error / wrong headers used!')
                         return False
-            build_Basic = images.construct_new_image_storm(Imgs)
+            build_Basic = self.construct_new_image_storm(Imgs)
 
             self.current_storm_image = build_Basic
             self.display.AddStormData(build_Basic)

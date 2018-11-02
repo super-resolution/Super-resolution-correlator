@@ -1,11 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-Created on: 2015.01.13.
-
-Author: turbo
-
-
-"""
 
 import os
 

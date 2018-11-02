@@ -11,11 +11,8 @@ import cv2
 from OpenGL.GL import *
 from scipy import stats
 
-from controllers.viewer.render.Render import points
-from controllers.viewer.render.Render import raycast
-from controllers.viewer.render.Render import image
-from controllers.viewer.render.Render import roi
-from controllers.viewer.render.Render import alpha_complex
+from impro.visualisation.Render import points,raycast,image,roi,alpha_complex
+
 ## make a widget for displaying 3D objects
 
 class Display(gl.GLViewWidget):
@@ -109,7 +106,7 @@ class Display(gl.GLViewWidget):
         self.z_offset = 0
         self.metaData = {"SizeX":0,"SizeY":0,"SizeZ":0}
         self.sim = image(data=None, smooth=False, filename=r"\image")
-        self.sim3D = raycast(filename=r"\raycast")
+        self.sim3D = raycast(filename=r"\image")
         self.sim.setVisible(False)
         self.sim3D.setVisible(False)
         self.simMarker = CustomMarker("SIM", antialias=True)

@@ -1,11 +1,5 @@
 # -*- coding: utf-8 -*-
-"""
-Created on: 2015.01.11.
 
-Author: turbo
-
-
-"""
 import os
 
 
@@ -306,13 +300,4 @@ class ConfocalImage(MicroscopeImage):
         self.metaData['SizeY'] = px
         self.metaData['SizeZ'] = px
 
-def construct_new_image_storm(imgs):
-    basic_image = imgs[0]
-    List= []
-    ChannelList = []
-    for i in range(len(imgs)):
-        List.append(imgs[i].stormData[0])
-        ChannelList.append("ch"+str(i))
-    basic_image.stormData = numpy.array(List)
-    basic_image.StormChannelList = ChannelList
-    return basic_image
+
