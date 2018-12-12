@@ -85,6 +85,9 @@ class Viewer(object):
         elif mode == 'confocal':
             getattr(self.main_window, 'label_' + mode + '_info').setText(text)
 
+    def set_offset(self, dStorm_offset):
+        self.display.QWindow.set_sim_position(-dStorm_offset)
+
     def push_markers_to_dialoge(self):
         sim, storm, color = self.display.QWindow.get_marker()
         self.main_window.dialog_imageregistration.setCombo((storm, sim), color)
@@ -165,46 +168,6 @@ class Viewer(object):
         #    print("No alpha shape/ SIM data")
         points1, points2, z, t_list = find_mapping(np.clip(sim,0,255).astype(np.uint8), alpha.astype(np.uint8))
         p_dstorm, q_sim = error_management(t_list, points1, points2)
-        # hough = hough_transform()
-        # hough.set_template(alpha)
-        # hough.set_image(np.clip(sim,0,255))
-        # p_dstorm = []
-        # q_sim = []
-        # t_list = []
-        # col_len = 5
-        # #x dim
-        # for i in range(5):
-        #     #y dim
-        #     for j in range(col_len):
-        #         #define start point
-        #         k,j = j*200,j*200
-        #         #point set dstorm = source point of segment
-        #         p_dstorm.append(np.array((k+100,i*200+100)))
-        #         dstorm_segment = alpha[k:j,0+i*200:200+i*200]
-        #         #imnew = im[k:j,0+i*200:200+i*200]
-        #         hough.set_template(dstorm_segment)
-        #         res = hough.transform()
-        #         q_sim.append(res[1][0:2]*2)
-        #         t_list.append(res[0:2])
-        # num = []
-        # for i,ent1 in enumerate(t_list):
-        #     row1 = int(i/col_len)
-        #     col1 = i%col_len
-        #     max=0
-        #     print(i)
-        #     for j,ent2 in enumerate(t_list):
-        #         row = int(j/col_len)
-        #         col = j%col_len
-        #         #todo: some tangens
-        #         val1 = ent1[1][0]-(col1-col)*100
-        #         val2 = ent1[1][1]-(row1-row)*100
-        #         if np.absolute(val1-ent2[1][0])<50 and np.absolute(val2-ent2[1][1])<50:
-        #             print(True)
-        #             max+=1
-        #         else:
-        #             print(False)
-        #     if max>2:
-        #         num.append(i)
         x = p_dstorm[:,1]
         y = p_dstorm[:,0].copy()
         p_dstorm[:,0]=x
@@ -219,6 +182,7 @@ class Viewer(object):
         q_sim = np.asarray(q_sim)*self.current_confocal_image.metaData['SizeX']*1000
         self.main_window.viewer.current_storm_image.transformAffine(src=p_dstorm,dst=q_sim)
         self.main_window.viewer.show_storm_image(self.main_window.storm_images_list.selectedItems())
+        #self.set_offset(self.current_storm_image.offset)
         #for marker in p_dstorm:
         #    self.main_window.dialog_imageregistration.set_markers(marker[0], marker[1], "STORM")
         #for marker in q_sim:

@@ -116,6 +116,16 @@ class Display(gl.GLViewWidget):
         self.addItem(self.simMarker)
         self.imageOffset = pg.QtGui.QVector2D()
 
+    def set_sim_position(self, position):
+        sim_size = np.array((self.sim.data[0].shape[-1],self.sim.data[0].shape[-2]))*self.metaData["SizeX"]*1000
+        print(self.storm[0].position[:,1].max())
+        new_offset = -position[1]-sim_size[0]+self.storm[0].position[:,1].max(),position[0]
+        self.sim.translate(-self.imageOffset.x()+new_offset[0], -self.imageOffset.y()+new_offset[1],0)
+        self.sim3D.translate(-self.imageOffset.x()+new_offset[0], -self.imageOffset.y()+new_offset[1],0)
+        self.imageOffset.setX(new_offset[0])
+        self.imageOffset.setY(new_offset[1])
+
+
     def set_dstorm_image(self, data, Lut, color, channel):
         colorfloat = list([c/255 for c in color])
         colorfloat[3] = 1.0

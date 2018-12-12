@@ -106,6 +106,7 @@ class StormImage(MicroscopeImage):
         self.coords_cols = []
         self.other_cols = []
         self.matrix = None
+        self.offset = (0,0)
 
     #Read and prepare STORM data
     def parse(self):
@@ -138,6 +139,7 @@ class StormImage(MicroscopeImage):
             dst = landmarks[:,3:5]
             src = landmarks[:,1:3]
         affine = transform.estimate_transform("affine",src,dst)
+        self.offset = affine.translation
         data = self.stormData[0][:,0:2]
         data = affine(data)
         self.stormData[0][:,0:2] = data

@@ -668,14 +668,15 @@ class ExportDialog(Ui_Dialog_Export_Roi):
                    self.checkBox_save_sim_image.isChecked()]
         path = str(self.lineEdit_path.text()+"\\")
         #self.main_window.viewer.save_roi(path, to_save)
-        #x= PIL.Image.fromarray(numpy.swapaxes(numpy.fliplr(self.sim.astype(numpy.uint8)),0,1)).convert('RGBA')
-        both = PIL.Image.blend(self.sim, self.dstorm, 0.5)
+        storm = PIL.Image.fromarray(self.dstorm)
+        sim = PIL.Image.fromarray(self.sim.astype(numpy.uint8)).convert('RGBA')
+        both = PIL.Image.blend(sim, storm, 0.5)
         if to_save[0]:
             TransformLocFile.saveLocFile(path + r"_localizations.txt", self.loc[...,[0,1,3,5,4,2]])
         if to_save[1]:
-            self.dstorm.save(path + r"dSTORM_image.png")
+            storm.save(path + r"dSTORM_image.png")
         if to_save[2]:
-            self.sim.save(path + r"SIM_image.png")
+            sim.save(path + r"SIM_image.png")
         if numpy.all(to_save[1:3]):
             both.save(path + r"both_image.png")
 
