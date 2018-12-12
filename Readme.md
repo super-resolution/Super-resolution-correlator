@@ -21,6 +21,11 @@ These instructions will get you a copy of the project up and running on your loc
 * Cuda 8.0 or higher
 * pycuda
 * Python opencv
+* PyQt5
+* numpy
+* pandas
+* scikit
+* scipy
 
 ```
 Some images
