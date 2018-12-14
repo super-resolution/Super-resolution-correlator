@@ -1,4 +1,5 @@
 # Super-resolution correlator
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2275731.svg)](https://doi.org/10.5281/zenodo.2275731)
 
 Super-resolution correlator is package for data processing in super-resolution microscopy. It contains a intuitive GUI and high perfomant
 GPU based visualization and algorithms for 2D and 3D data. <br />
