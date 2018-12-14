@@ -16,16 +16,10 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-* impro
+* [Impro](../Impro)
 * Nvidia GPU with compute capability 3 or higher
 * Cuda 9.0 from [CUDA website](https://developer.nvidia.com/cuda-90-download-archive) (CUDA 10 is yet not supported by pycuda)
-* pycuda
-* Python opencv
-* PyQt5
-* numpy
-* pandas
-* scikit
-* scipy
+
 
 ```
 Some images
@@ -35,12 +29,14 @@ Some images
 
 1. Clone git repository
 2. Open cmd and cd to repository
-3. Start GUI with
-
+3. Install requirements with:
+```
+pip install -r requirements.txt
+```
+4. Start GUI with:
 ```
 python main.py
 ```
-4. Install missing packages if necessary
 
 ### Run test data
 
