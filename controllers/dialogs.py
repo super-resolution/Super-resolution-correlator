@@ -7,9 +7,6 @@ from functools import partial
 from controllers import bunwarpJ_cmd_support
 
 
-from .active_contour import morphsnakes
-
-
 from .viewer import tifffile
 
 

@@ -8,19 +8,14 @@ from .. import default_config
 
 from ..rois import EllipseRoi, CircleRoi, ActiveContourRoi
 
-from impro.processing import Image as images
-
 
 import os
-
-
-from PyQt5 import QtCore
 
 
 import numpy as np,datetime
 
 from impro.processing.CudaAlphaShape import get_k_simplices
-from impro.processing.CudaHough import hough_transform
+
 from impro.processing.utility import *
 
 

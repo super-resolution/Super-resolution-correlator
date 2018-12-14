@@ -4,16 +4,10 @@ import os
 
 
 from PyQt5.QtWidgets import *
-import xml.etree.ElementTree as XMLET
-
-
-import threading
-
 
 import numpy as numpy,datetime
 
 
-from PyQt5.QtGui import *
 from scipy import misc
 
 

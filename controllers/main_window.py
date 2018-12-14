@@ -8,9 +8,6 @@ Edit by: Sebastian Reinhard 31.10.2018
 
 """
 
-from PyQt5 import QtCore, QtGui, QtWidgets
-# from views.main_window import Ui_MainWindow
-from . import default_config
 
 
 from views.main_window import Ui_MainWindow
@@ -29,9 +26,6 @@ from .rois import FreehandRoi
 
 
 from .settings import *
-
-
-from functools import partial
 
 
 import os

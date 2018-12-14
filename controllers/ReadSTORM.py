@@ -3,7 +3,6 @@ import pandas as pd
 import numpy as np
 from itertools import islice
 import re
-import tkinter
 
 class stormfile(object):
     def __init__(self, input_loc_path):

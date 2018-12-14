@@ -3,16 +3,8 @@
 import pyqtgraph as pg
 
 
-from pyqtgraph.Qt import QtGui
-
-
-import pyqtgraph.exporters
-
-
 import numpy as np, datetime
 
-
-from PyQt5.QtGui import *
 import math
 
 
@@ -20,9 +12,6 @@ from . import StormLUT
 
 
 from .. import default_config
-
-
-import scipy.ndimage
 
 
 import os
@@ -35,12 +24,6 @@ import gc
 
 
 import copy
-
-
-import sys
-
-
-import matplotlib.pyplot as plt
 
 
 from . import Custom3DViewBox

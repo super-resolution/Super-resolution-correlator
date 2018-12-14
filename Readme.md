@@ -18,7 +18,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 * impro
 * Nvidia GPU with compute capability 3 or higher
-* Cuda 8.0 or higher
+* Cuda 9.0 from [CUDA website](https://developer.nvidia.com/cuda-90-download-archive) (CUDA 10 is yet not supported by pycuda)
 * pycuda
 * Python opencv
 * PyQt5
